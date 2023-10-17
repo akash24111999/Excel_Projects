@@ -1,0 +1,40 @@
+https://www.kaggle.com/datasets/ishanshrivastava28/superstore-sales
+
+Command for Data Transformation:
+i. Order Date to Formatted Order Date:
+=TEXT(IF(ISNUMBER(C2), C2, IF(ISNUMBER(DATEVALUE(C2)), DATEVALUE(C2), DATEVALUE(TEXT(DATE(MID(C2, FIND("/", C2, FIND("/", C2) + 1) + 1, 4), LEFT(C2, FIND("/", C2) - 1), MID(C2, FIND("/", C2) + 1, FIND("/", C2, FIND("/", C2) + 1) - FIND("/", C2) - 1)), "dd-mm-yyyy")))), "dd-mm-yyyy")
+
+ii. Ship Date to Formatted Ship Date:
+=TEXT(IF(ISNUMBER(E2), E2, IF(ISNUMBER(DATEVALUE(E2)), DATEVALUE(E2), DATEVALUE(TEXT(DATE(MID(E2, FIND("/", E2, FIND("/", E2) + 1) + 1, 4), LEFT(E2, FIND("/", E2) - 1), MID(E2, FIND("/", E2) + 1, FIND("/", E2, FIND("/", E2) + 1) - FIND("/", E2) - 1)), "dd-mm-yyyy")))), "dd-mm-yyyy")
+
+***Questions***
+1) What are the total sales by segment in each/all years?
+2) What are the total sale, quantity, discount and profit in each/all years?
+3) What are the profit sales in different regions in each/all years?
+4) What is the total quantity in different/all categories in each/all years?
+5) What is total sales in different/all categories in each/all years?
+6) What is the total profit in different/all categories in each/all years?
+7) What is the sum of ship mode in terms of sales in each/all years?
+8) What is the sum of ship mode in terms of quantity in each/all years?
+9) What is the progress in sales profit and quantity in each month or quarter of different years?
+10) What is the profit sales of each year?
+
+For slicers, you can add slicers for "Region," "Category," "Segment," "Sub-Category," and any other relevant columns to allow users to interactively filter the data.
+
+I am making a Superstore Sales Dashboard in Excel.
+These are the questions which I want to address:
+1) What are the total sales by segment in each/all years?
+2) What are the total sale, quantity, discount and profit in each/all years?
+3) What are the profit sales in different regions in each/all years?
+4) What is the total quantity in different/all categories in each/all years?
+5) What is total sales in different/all categories in each/all years?
+6) What is the total profit in different/all categories in each/all years?
+7) What is the sum of ship mode in terms of sales in each/all years?
+8) What is the sum of ship mode in terms of quantity in each/all years?
+9) What is the progress in sales profit and quantity in each month or quarter of different years?
+10) What is the profit sales of each year?
+
+The columns are (Row ID, Order ID, Order Date, Ship Date, Ship Mode, Customer ID, Customer Name, Segment, Country, City, State, Postal Code, Region, Product ID, Category, Sub-Category, Product Name, Sales, Quantity, Discount, Profit)
+Give me each and every step for which column name to choose for rows, filters, values or columns.
+For every question appropriate graphs and how to obtain those graphs step by step.
+At the end important Slicers with the dashboard name and a nice decent wireframe for the dashboard.

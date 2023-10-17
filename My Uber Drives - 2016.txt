@@ -1,0 +1,39 @@
+https://www.kaggle.com/datasets/zusmani/uberdrives?resource=download
+
+Questions:-
+Q1. Get the Unique Start and Stop Location?
+Q2. Get the Total number of Unique Start and Stop Locations.
+Answer: We add Start* and Stop* to pivot rows individually and calculate their counts using COUNTA function.
+ 
+Q3. What are the most famous Start and drop locations?
+Answer:-  We add Start* and Stop* to pivot rows and sum of sales to pivot values.
+
+Q4. The most frequent route taken.
+Q5. Highest Route speed.
+
+All the "*" columns were already present in the dataset. Rest were generated manually.
+i. For the last question, we need to see variuos factors w.r.t. speed (overspeeding), i.e. we need to calculate time from Start_Date*. So a new column is generated i.e. Start_Time.
+We also calculated End_Time, Start_Date, End_Date column. 
+For the Start_Time and End_Time:- We need to select the primary column --> goto data tab --> under data tools --> text to columns --> fixed_width --> next --> date to (mdy) --> Finish.
+
+ii. After finding the Start_Time and End_Time, I calculated Time in minutes by subtracting End_Time with Start_Time and multiplying the whole with 24 and 60.
+And then calculated Time in hours by dividing the Time(mins) by 60.
+***Over here, the issue generated was what if the ride on one day and ended on the next day. Generating negative time period too; and indeed a negative speed.***
+To overcome this we need to change the time period from 24 hours to 12 hours for the Start_Time and the End_Time respectively.
+Select the Start_Time column --> under numbers --> more number formats --> Time --> 01:30:55PM (for the am/pm format) -->
+
+Again re-writing the time mins condition with the help of if statement as we have am/pm now.
+The formula is : "=if(F2>C2,F2-C2,F2-C2+1)" for TIME Diff.
+Convert it into Time Again in 
+For calculating it in hours: "=(hour(H2)*60+minute(H2))/60"
+Convert it into general again.
+
+Now everything is in +ve format including Speed. 
+However there's an anomaly that at some places the Start_Time and End_Time is the same. Its an error. Total 4 rows are like that. Deleting those.
+After checking the Speed column there are speed which are above 120 which are improper. This is because the time and the distance travelled isn't showing a clear picture.
+The highest was 906,664,552.
+I check calculating outliers but the output is not feasible to use as its to less.
+Max Speed which I have taken is of 141.
+
+***Now my Data Cleaning and Data Transformation everything is done.***
+
